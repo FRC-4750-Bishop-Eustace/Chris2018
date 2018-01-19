@@ -43,7 +43,7 @@ public class DriveTrain extends Subsystem {
 		backLeftMotor = new VictorSP(backLeftMotorPort);
 		backRightMotor = new VictorSP(backRightMotorPort);
 
-		// initialize controller groups
+		// Initialize controller groups
 		leftMotors = new SpeedControllerGroup(frontLeftMotor, backLeftMotor);
 		rightMotors = new SpeedControllerGroup(frontRightMotor, backRightMotor);
 
@@ -54,7 +54,7 @@ public class DriveTrain extends Subsystem {
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
-		setDefaultCommand(new TankDrive());
+		//setDefaultCommand(new TankDrive());
 	}
 
 	// Joystick (teleop) drive

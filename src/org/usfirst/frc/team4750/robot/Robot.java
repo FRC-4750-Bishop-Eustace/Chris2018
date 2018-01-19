@@ -7,17 +7,12 @@
 
 package org.usfirst.frc.team4750.robot;
 
-import org.usfirst.frc.team4750.robot.commands.AutonLeft;
-import org.usfirst.frc.team4750.robot.commands.AutonRight;
-import org.usfirst.frc.team4750.robot.commands.AutonStraight;
 import org.usfirst.frc.team4750.robot.subsystems.DriveTrain;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -37,14 +32,14 @@ public class Robot extends TimedRobot {
 	// Sendable chooser to choose starting position
 	SendableChooser<String> chooser = new SendableChooser<>();
 
-	// String to hold starting position
-	String startPos;
-
+//	// String to hold starting position
+//	String startPos;
+//
 	// Autonomous command
 	Command autonomousCommand;
-
-	// String to hold game specific data
-	String gameData;
+//
+//	// String to hold game specific data
+//	String gameData;
 
 	/**
 	 * This function is run when the robot is first started up and should be used
@@ -54,13 +49,13 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		oi = new OI();
 
-		// Add start position options
-		chooser.addDefault("Middle", "M");
-		chooser.addObject("Left", "L");
-		chooser.addObject("Right", "R");
-
-		// Output chooser to smart dashboard
-		SmartDashboard.putData("Start Position", chooser);
+//		// Add start position options
+//		chooser.addDefault("Middle", "M");
+//		chooser.addObject("Left", "L");
+//		chooser.addObject("Right", "R");
+//
+//		// Output chooser to smart dashboard
+//		SmartDashboard.putData("Start Position", chooser);
 	}
 
 	/**
@@ -76,73 +71,73 @@ public class Robot extends TimedRobot {
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
-
-		// Get start position
-		startPos = chooser.getSelected();
-		SmartDashboard.putString("Start Position", startPos);
-
-		// Get plate formation
-		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		SmartDashboard.putString("Plate Order", gameData);
-
-		// Check if the switch plate owned is left or right
-		if (gameData.charAt(0) == 'L') { // If left
-			autonomousCommand = new AutonLeft(); // Run left auton
-		} else if (gameData.charAt(0) == 'R') { // If right
-			autonomousCommand = new AutonRight(); // Run right auton
-		}
-
-		if (startPos == "L" && gameData.charAt(0) == 'L') {
-			autonomousCommand = new AutonStraight();
-		} else if (startPos == "L" && gameData.charAt(0) == 'R') {
-			autonomousCommand = new AutonRight();
-		} else if (startPos == "M" && gameData.charAt(0) == 'L') {
-			autonomousCommand = new AutonLeft();
-		} else if (startPos == "M" && gameData.charAt(0) == 'R') {
-			autonomousCommand = new AutonRight();
-		} else if (startPos == "L" && gameData.charAt(0) == 'L') {
-			autonomousCommand = new AutonLeft();
-		} else if (startPos == "L" && gameData.charAt(0) == 'R') {
-			autonomousCommand = new AutonStraight();
-		} else {
-			autonomousCommand = new AutonStraight();
-		}
-
-		switch (startPos) {
-		case "L":
-			switch (gameData.charAt(0)) {
-			case 'L':
-				autonomousCommand = new AutonStraight();
-				break;
-			case 'R':
-				autonomousCommand = new AutonRight();
-				break;
-			}
-			break;
-		case "M":
-			switch (gameData.charAt(0)) {
-			case 'L':
-				autonomousCommand = new AutonLeft();
-				break;
-			case 'R':
-				autonomousCommand = new AutonRight();
-				break;
-			}
-			break;
-		case "R":
-			switch (gameData.charAt(0)) {
-			case 'L':
-				autonomousCommand = new AutonLeft();
-				break;
-			case 'R':
-				autonomousCommand = new AutonStraight();
-				break;
-			}
-			break;
-		}
-
-		// Output the current command to the smart dashboard
-		SmartDashboard.putData("AutonomousCommand", autonomousCommand);
+//
+//		// Get start position
+//		startPos = chooser.getSelected();
+//		SmartDashboard.putString("Start Position", startPos);
+//
+//		// Get plate formation
+//		gameData = DriverStation.getInstance().getGameSpecificMessage();
+//		SmartDashboard.putString("Plate Order", gameData);
+//
+//		// Check if the switch plate owned is left or right
+//		if (gameData.charAt(0) == 'L') { // If left
+//			autonomousCommand = new AutonLeft(); // Run left auton
+//		} else if (gameData.charAt(0) == 'R') { // If right
+//			autonomousCommand = new AutonRight(); // Run right auton
+//		}
+//
+//		if (startPos == "L" && gameData.charAt(0) == 'L') {
+//			autonomousCommand = new AutonStraight();
+//		} else if (startPos == "L" && gameData.charAt(0) == 'R') {
+//			autonomousCommand = new AutonRight();
+//		} else if (startPos == "M" && gameData.charAt(0) == 'L') {
+//			autonomousCommand = new AutonLeft();
+//		} else if (startPos == "M" && gameData.charAt(0) == 'R') {
+//			autonomousCommand = new AutonRight();
+//		} else if (startPos == "L" && gameData.charAt(0) == 'L') {
+//			autonomousCommand = new AutonLeft();
+//		} else if (startPos == "L" && gameData.charAt(0) == 'R') {
+//			autonomousCommand = new AutonStraight();
+//		} else {
+//			autonomousCommand = new AutonStraight();
+//		}
+//
+//		switch (startPos) {
+//		case "L":
+//			switch (gameData.charAt(0)) {
+//			case 'L':
+//				autonomousCommand = new AutonStraight();
+//				break;
+//			case 'R':
+//				autonomousCommand = new AutonRight();
+//				break;
+//			}
+//			break;
+//		case "M":
+//			switch (gameData.charAt(0)) {
+//			case 'L':
+//				autonomousCommand = new AutonLeft();
+//				break;
+//			case 'R':
+//				autonomousCommand = new AutonRight();
+//				break;
+//			}
+//			break;
+//		case "R":
+//			switch (gameData.charAt(0)) {
+//			case 'L':
+//				autonomousCommand = new AutonLeft();
+//				break;
+//			case 'R':
+//				autonomousCommand = new AutonStraight();
+//				break;
+//			}
+//			break;
+//		}
+//
+//		// Output the current command to the smart dashboard
+//		SmartDashboard.putData("AutonomousCommand", autonomousCommand);
 	}
 
 	/**
