@@ -8,6 +8,7 @@
 package org.usfirst.frc.team4750.robot;
 
 import org.usfirst.frc.team4750.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4750.robot.subsystems.Gyro;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -26,6 +27,8 @@ public class Robot extends TimedRobot {
 	// Instantiate the drive train subsystem to the motor ports
 	public static final DriveTrain driveTrain = new DriveTrain(RobotMap.FRONT_LEFT_MOTOR_PORT,
 			RobotMap.FRONT_RIGHT_MOTOR_PORT, RobotMap.BACK_LEFT_MOTOR_PORT, RobotMap.BACK_RIGHT_MOTOR_PORT);
+	
+	public static final Gyro gyro = new Gyro();
 
 	public static OI oi;
 

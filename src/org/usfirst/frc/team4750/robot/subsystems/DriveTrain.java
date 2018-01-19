@@ -62,6 +62,11 @@ public class DriveTrain extends Subsystem {
 		// Set motor speeds to the joystick values
 		robotDrive.tankDrive(-l.getY(), -r.getY());
 	}
+	
+	// Gyro drive
+	public void setDriveMotors(double leftSpeed, double rightSpeed) {
+		robotDrive.tankDrive(leftSpeed, rightSpeed);
+	}
 
 	// Autonomous drive
 	public void autonDrive(double moveSpeed, double turnSpeed) {
